@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>me.ddzq.folderopenbysublime</string>
+	<key>connections</key>
+	<dict>
+		<key>41D3252D-DE3C-4994-8FBE-FDD2EA82AE3D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>063751F6-0434-4F16-9A54-EB3460643102</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>ddzq</string>
+	<key>description</key>
+	<string>Open Folder with current finder path by Sublime</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Open Folder by Sublime</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+	set finderPath to ""
+
+	tell application "Finder"
+		try
+			set finderFolder to (folder of the front window as alias)
+		on error
+			set finderFolder to (path to home folder as alias)
+		end try
+		set finderPath to quoted form of POSIX path of finderFolder
+		do shell script "/Applications/Sublime' 'Text.app/Contents/SharedSupport/bin/subl " &amp; finderPath
+	end tell
+
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>063751F6-0434-4F16-9A54-EB3460643102</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>subl.</string>
+				<key>subtext</key>
+				<string>Open current folder path with sublime</string>
+				<key>text</key>
+				<string>Open with sublime</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>41D3252D-DE3C-4994-8FBE-FDD2EA82AE3D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>063751F6-0434-4F16-9A54-EB3460643102</key>
+		<dict>
+			<key>ypos</key>
+			<real>110</real>
+		</dict>
+		<key>41D3252D-DE3C-4994-8FBE-FDD2EA82AE3D</key>
+		<dict>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://dzqlx1993.github.io/</string>
+</dict>
+</plist>
