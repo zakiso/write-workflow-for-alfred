@@ -91,7 +91,7 @@ end alfred_script
 在新建后的弹出窗口中填下worklow的相关信息。  
 ![icon](images/how-to-write-workflow-for-alfred-2.png)  
 ####3. 添加Script Filter
-![icon](images/how-to-write-workflow-for-alfred-3.png)   
+![icon](images/how-to-write-workflow-for-alfred-3.jpeg)   
 在弹出框中添加script的描述  
 ![icon](images/how-to-write-workflow-for-alfred-4.png)  
 在language的地方可以选择/usr/bin/python或者你自己适合的语言，然后把代码放在script里面就好。不过为了调试方便，可以选择/bin/bash 这样可以在script里面写上python getjoke.py来运行。也方便调试。下面我们就要来写getjoke.py了
