@@ -15,7 +15,7 @@
 ![My helpful screenshot](images/how-to-write-workflow02.png)
 可以看到如上图，关机字是`.`然后双击Run NSAppleScript就能看到源码了。可以看到源码是用appleScript写的，看起来很简单。
 
-{% highlight python %}
+```python
 on alfred_script(q)
 	set finderPath to ""
 	tell application "Finder"
@@ -42,7 +42,7 @@ on alfred_script(q)
 		end tell
 	end tell
 end alfred_script
-{% endhighlight %}
+```
 
 大概看懂代码也就明白是什么意思了，就是先把finderPath设置成空，然后获取当前finder所在的路径，然后告诉iterm打开并切换到这个路径。  
 我们把这段代码稍微改一下，就能得到我们想要的用sublime打开当前文件夹了。在alfred的设置，workflow里面:  
@@ -52,7 +52,7 @@ end alfred_script
 3. 配置好后再右上角 + Action->Run NSAppleScript
 4. 然后添加下面我们修改过的代码，保存就完成了
 
-{% highlight python %}
+```python
 on alfred_script(q)
 	set finderPath to ""
 	tell application "Finder"
@@ -65,7 +65,7 @@ on alfred_script(q)
 		do shell script "/Applications/Sublime' 'Text.app/Contents/SharedSupport/bin/subl " & finderPath
 	end tell
 end alfred_script
-{% endhighlight %}
+```
 
 里面```do shell script "/Applications/Sublime' 'Text.app/Contents/SharedSupport/bin/subl " & finderPath```script后面是你的sublime的路径看看你的是不是这个路径，不是的话记得修改。
 
@@ -97,7 +97,7 @@ end alfred_script
 选中我们的workflow右键，然后再finder中显示。   
 到了文件夹后开始创建我们的python脚本。因为是用python来写，有一个python的workflow库很好用，可以去[下载最新版本](https://github.com/nikipore/alfred-python)，下载后解压后复制alfred.py到我们的workflow所在的文件夹。现在新建getjoke.py。添加代码：
 
-{% highlight python %}
+```python
 # -*- coding: utf-8 -*-
 
 from bs4 import BeautifulSoup
@@ -123,15 +123,15 @@ def main():
 
 if __name__ == "__main__":
     main()
-{% endhighlight %}
+```
 
 因为没有api所以是抓取的数据再解析的，所以用到了beautifulsoap这个包，下载这个包复制bs4这个文件夹到workflow所在的目录即可。
-![icon]({{ site.baseurl }}/images/how-to-write-workflow-for-alfred-5.png)
+![icon](images/how-to-write-workflow-for-alfred-5.png)
 
 ###总结
 总的来说写一个workflow就是获取你需要的数据，然后组装成一个xml文件，xml文件的格式如下:
 
-{% highlight html %}
+```html
 <items>
 	<item uid="me.ddzq.workflow.relaxmoment-0">
 		<title>女友口渴</title>
@@ -146,7 +146,7 @@ if __name__ == "__main__":
 		</subtitle>
 	</item>
 </items>
-{% endhighlight %}
+```
 
 还有其他很多action就靠大家自己研究了。  
 参考资料<http://www.deanishe.net/alfred-workflow/tutorial.html>  
