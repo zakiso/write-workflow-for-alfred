@@ -9,10 +9,12 @@
 > 用sublime打开当前文件夹
 
 熟话说要学一个东西得先会模仿。现在我们要做一个用sublime打开当前finder所在文件夹的workflow。第一步当然先去<http://www.alfredworkflow.com/>看看有没有和我们相似的workflow，然后拿下改一改就好了。
-![My helpful screenshot](images/how-to-write-workflow01.png)
+![My helpful screenshot](images/how-to-write-workflow01.png) 
+
 然后我们发现一个和我们需求非常相似的，open current folder in iTerm。下载下来然后倒入到alfred看看源码。
 
-![My helpful screenshot](images/how-to-write-workflow02.png)
+![My helpful screenshot](images/how-to-write-workflow02.png)  
+
 可以看到如上图，关机字是`.`然后双击Run NSAppleScript就能看到源码了。可以看到源码是用appleScript写的，看起来很简单。
 
 ```python
@@ -83,13 +85,13 @@ end alfred_script
 5. 添加Workflow Action
 
 ####1.新建一个Blank Workflow
-![icon](images/how-to-write-workflow-for-alfred-1.png)
+![icon](images/how-to-write-workflow-for-alfred-1.png)  
 
 ####2. 为新建的Blank Workflow添加描述
 在新建后的弹出窗口中填下worklow的相关信息。  
-![icon](images/how-to-write-workflow-for-alfred-2.png)
+![icon](images/how-to-write-workflow-for-alfred-2.png)  
 ####3. 添加Script Filter
-![icon](images/how-to-write-workflow-for-alfred-3.png)  
+![icon](images/how-to-write-workflow-for-alfred-3.png)   
 在弹出框中添加script的描述  
 ![icon](images/how-to-write-workflow-for-alfred-4.png)  
 在language的地方可以选择/usr/bin/python或者你自己适合的语言，然后把代码放在script里面就好。不过为了调试方便，可以选择/bin/bash 这样可以在script里面写上python getjoke.py来运行。也方便调试。下面我们就要来写getjoke.py了
@@ -126,7 +128,7 @@ if __name__ == "__main__":
 ```
 
 因为没有api所以是抓取的数据再解析的，所以用到了beautifulsoap这个包，下载这个包复制bs4这个文件夹到workflow所在的目录即可。
-![icon](images/how-to-write-workflow-for-alfred-5.png)
+![icon](images/how-to-write-workflow-for-alfred-5.png)  
 
 ###总结
 总的来说写一个workflow就是获取你需要的数据，然后组装成一个xml文件，xml文件的格式如下:
